@@ -1,0 +1,88 @@
+{
+	"name": "adls_ds_src",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_adls_src",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filename": {
+				"type": "string"
+			},
+			"Containername": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().filename",
+					"type": "Expression"
+				},
+				"folderPath": "src",
+				"fileSystem": {
+					"value": "@dataset().Containername",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CountryId",
+				"type": "String"
+			},
+			{
+				"name": "CountryName",
+				"type": "String"
+			},
+			{
+				"name": "CountryPhoneCode",
+				"type": "String"
+			},
+			{
+				"name": "CapitalCity",
+				"type": "String"
+			},
+			{
+				"name": "PopulationValue",
+				"type": "String"
+			},
+			{
+				"name": "OfficialLanguage",
+				"type": "String"
+			},
+			{
+				"name": "CurrencyName",
+				"type": "String"
+			},
+			{
+				"name": "AreaAquired",
+				"type": "String"
+			},
+			{
+				"name": "ContinentName",
+				"type": "String"
+			},
+			{
+				"name": "ActiveStatus",
+				"type": "String"
+			},
+			{
+				"name": "StartDate",
+				"type": "String"
+			},
+			{
+				"name": "EndDate",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

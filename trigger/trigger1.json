@@ -1,0 +1,29 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "event_trigger_1",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"fname": "@triggerBody().fileName",
+					"cname": "@triggerBody().folderPath"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/input-adls/blobs/src/Country_dummy",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/0cb87736-dbe6-4d7c-b2fa-d64cde6ebcee/resourceGroups/practise/providers/Microsoft.Storage/storageAccounts/adlsgen2asd",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

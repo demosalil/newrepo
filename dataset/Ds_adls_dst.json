@@ -1,0 +1,33 @@
+{
+	"name": "Ds_adls_dst",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_adls_src",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_dst": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().file_dst",
+					"type": "Expression"
+				},
+				"folderPath": "dst",
+				"fileSystem": "output-adls"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

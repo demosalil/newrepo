@@ -1,0 +1,37 @@
+{
+	"name": "Ds_blob_src",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_src_blob",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_src": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().file_src",
+					"type": "Expression"
+				},
+				"container": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "import csv",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
