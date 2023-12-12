@@ -1,0 +1,20 @@
+{
+	"name": "ds_parquet_dst",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_src_blob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "st_sink_git_out",
+				"container": "output"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
